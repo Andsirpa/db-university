@@ -31,11 +31,14 @@ WHERE `period` = 'I semestre' AND `year` = '1'
 SELECT * 
 FROM `exams` 
 WHERE `date` = '2020-06-20' AND `hour` LIKE '14%'
+-- maybe to be fixed
 ``` 
 
 ## 6. Selezionare tutti i corsi di laurea magistrale (38)
 ```sql
-
+SELECT * 
+FROM `degrees`
+WHERE `level` = 'magistrale'
 ``` 
 
 ## 7. Da quanti dipartimenti è composta l'università? (12)
