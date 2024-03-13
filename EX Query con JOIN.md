@@ -28,6 +28,31 @@ WHERE `course_teacher`.`teacher_id` = 44
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 ```sql
+SELECT 
+-- rinomino le colonne (non serve scrivere AS)
+
+    `students`.`id` `student_id`
+    `students`.`name` `student_name`
+    `students`.`surname` `student_surname`
+
+    `degrees`.`id` `degree_id`
+    `degrees`.`name` `degree_name`
+
+    `departments`.`id` `department_id`
+    `departments`.`name` `department_name`
+
+FROM `students`
+
+INNER JOIN `degrees`
+ON `student`.`degree_id` = `degrees`.`id`
+
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+
+-- uso ORDER BY ... ASC per ordinare in ordine alfabetico
+ORDER BY `student_name` ASC, `student_surname` ASC
+
+
 
 ``` 
 
